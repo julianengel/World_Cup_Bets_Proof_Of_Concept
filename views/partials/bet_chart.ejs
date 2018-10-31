@@ -1,0 +1,42 @@
+<!--  let game = 
+{status : status, 
+homeTeam : home_team, 
+homeScore : home_goals, 
+awayTeam : away_team, 
+awayScore : away_goals, 
+winner: winner,
+gameID : game_id} -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2" class="text-center"><%= game.homeTeam %> vs <%= game.awayTeam %> - Bet</th>
+    </tr>
+  </thead>
+  <tbody id="boobie">
+    <% if (game.status == "future") { %>
+    <form id="<%= game.gameID %>" >
+    
+        <tr>
+          <th scope="row"><%= game.homeTeam %></th>
+          <td><input type="number" name="homeScore" class="form-control" placeholder="input margin" aria-describedby="basic-addon1"></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= game.awayTeam%></th>
+          <td><input type="number" name="awayScore" class="form-control" placeholder="input margin" aria-describedby="basic-addon1"></td>
+        </tr>
+      <tr>
+        <td scope="col" colspan="2"><input type="hidden" name="user" value="<%= user.username %>"><input type="hidden" name="gameID" value="<%= game.gameID %>"><input type="hidden" name="homeTeam" value="<%= game.homeTeam %>"><input type="hidden" name="date" value="<%= game.date %>"><input type="hidden" name="awayTeam" value="<%= game.awayTeam %>"><input type="submit" value="Submit" onclick="sendBet('<%= game.gameID %>')"></td>
+        
+      </tr>
+    </form>
+    <% } else { %>
+    
+        <tr>
+      <th scope="row">Status</th>
+      <td><%= game.status %></td>
+    </tr>
+    
+    
+     <%}%>
+  </tbody>
+</table>

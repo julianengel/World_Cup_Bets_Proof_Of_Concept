@@ -1,0 +1,47 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+
+<main class="container-fluid">
+  
+  <h1 class="text-center">
+    Date Today - <%= user.username %>
+  </h1>
+  
+  <h3>
+    Results
+  </h3>
+    <h3>
+    Bets
+  </h3>
+  
+<div class="row">
+  <% game.forEach(function(game){ %>
+  <div class="col-3">
+    <%- include('../partials/bet_chart', {game: game, user:user}) %>
+  </div>
+  <% }); %>
+</div>
+  
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script src="client.js"></script>
+</body>
+</html>

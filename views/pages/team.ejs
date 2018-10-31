@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+  
+<main class="container-fluid">
+  <div class="row">
+    <div class="col-4">
+        <div class="card">
+        <img src="https://cdn.glitch.com/62c20d8a-2406-4959-a5f2-7ff3f0811feb%2Fmascot.jpg?1530174079923" alt="Mascot" style="width:100%">
+        <h1><%=user.username %></h1>
+        <p class="title">Casual Better</p>
+        <p><%=user.email%></p>
+        <p><a href="/logout" class="btn btn-default button">Log Out</a></p>
+      </div>
+    </div>
+    <div class="col-8">
+      
+      <h2>
+        My Bets
+        <%- include('../partials/my_team_conf') %>
+      </h2>
+
+    </div>
+  </div>  
+</main>
+
+</body>
+</html>

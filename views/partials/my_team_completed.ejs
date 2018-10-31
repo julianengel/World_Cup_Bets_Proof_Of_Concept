@@ -1,0 +1,31 @@
+<!--    
+  gameID: String,
+  teamOne: String, 
+  teamTwo: String, 
+  teamOneScore: Number,
+  teamTwoScore: Number,
+  created_at: Date -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" colspan="4" class="text-center">My Bets</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th>Player</th>
+      <th>Completed</th>
+      <th>To Go</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% users.forEach(function(bet){%>
+    <tr>
+      <td><%= date.toString().substring(0,15) %></td>
+      <td><%=bet.homeTeam%></td>
+      <td><%=bet.homeScore%></td>
+      <td><%=bet.awayTeam%></td>
+      <td><%=bet.awayScore%></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>

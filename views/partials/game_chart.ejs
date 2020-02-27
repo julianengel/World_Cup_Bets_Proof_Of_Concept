@@ -1,0 +1,47 @@
+<!--  let game = 
+{status : status, 
+homeTeam : home_team, 
+homeScore : home_goals, 
+awayTeam : away_team, 
+awayScore : away_goals, 
+winner: winner,
+gameID : game_id} -->
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col" colspan="2" class="text-center"><%= game.homeTeam %> vs <%= game.awayTeam %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">Status</th>
+      <td><%= game.status %></td>
+    </tr>
+    <% if (game.status == "completed") { %>
+        <tr>
+          <th scope="row">Winner</th>
+          <td> <%= game.winner %></td>
+        </tr>
+        <tr>
+          <th scope="row">Final Score</th>
+          <td><%= game.homeScore %>: <%= game.awayScore %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= game.homeTeam %></th>
+          <td><%= game.homeScore %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= game.awayTeam%></th>
+          <td><%= game.awayScore %></td>
+        </tr>
+    <% } else if (game.status == "in progress") { %>
+        <th scope="row"><%= game.homeTeam %></th>
+          <td><%= game.homeScore %></td>
+        </tr>
+        <tr>
+          <th scope="row"><%= game.awayTeam%></th>
+          <td><%= game.awayScore %></td>
+        </tr>
+      <%} %>
+  </tbody>
+</table>

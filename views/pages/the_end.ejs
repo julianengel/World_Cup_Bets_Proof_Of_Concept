@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+    <link href="/style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+<header>
+    <%- include('../partials/header') %>
+</header>
+  
+<main class="container-fluid">
+  <div class="row padded-top">
+    <div class="col">
+      
+      <h2 class='display-1 center'>
+        Thank You For Playing
+      </h2>
+      
+    </div>
+  </div> 
+  <div class="row mt-5">
+    <div class="col-3">
+      <img src="https://cdn.glitch.com/62c20d8a-2406-4959-a5f2-7ff3f0811feb%2Fimages.jpeg?1531983799930" class="img-fluid pt-2">
+    </div>
+    
+    <div class="col-9">
+      <p class="display-4 center  mb-5">
+        The winner is: <%= winner %>
+      </p>
+      
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Total</th>
+      <th scope="col">Team</th>
+      <th scope="col">Score</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <% let user1 = Object.keys(scores[0])[0]
+         let user2 = Object.keys(scores[0])[1]
+      %>
+      <th scope="row"><%= user1 %></th>
+      <td><%= scores[0][user1] %></td>
+      <td><%= scores[1][user1] %></td>
+      <td><%= scores[2][user1] %></td>
+      
+    </tr>
+    <tr>
+      <th scope="row"><%= user2 %></th>
+      <td><%= scores[0][user2] %></td>
+      <td><%= scores[1][user2] %></td>
+      <td><%= scores[2][user2] %></td>
+    </tr>
+  </tbody>
+</table>
+      
+            
+    </div>
+  </div>
+  <div class="row">
+    <div class="column pl-5 pt-5">
+      <p>
+        You can view the full log for all the games, including all activity <a href="/log.txt">here</a>.
+      </p>
+      <p>
+        This application used the <a href="http://worldcup.sfg.io/matches/">WorldCup.sfg.io</a> API for all it's scores. For continuity, there will be a copy you can find <a href="/matches">here</a> or at the enpoint <a href="/matches">/matches</a>.
+      </p>
+    </div>
+        
+  </div>
+</main>
+
+</body>
+</html>
